@@ -1,0 +1,22 @@
+body{
+  display: flex;
+  flex-direction: column;
+}
+.herosection {
+  justify-content: center;  /* Center content horizontally */
+  align-items: center;      /* Center content vertically */
+  position: relative;       /* Prevents unwanted scrolling */
+  height: 82vh;
+}
+
+.slider-bg {
+  background-image: url("../images/hero-slider-1.jpg");
+  /* transform: scale(1); */
+  justify-content: center;  /* Centers background elements if needed */
+  align-items: center;
+}
+
+.hero-text {
+  text-align: center; /* Ensures text is centered */
+  margin-top: 20%;
+}
