@@ -1,7 +1,13 @@
 <?php
 // Start session if needed
 session_start();
+// Check if booking was successful
+if (isset($_SESSION['booking_success']) && $_SESSION['booking_success'] === true) {
+    $success_message = "Your reservation was successfully made!";
+    unset($_SESSION['booking_success']); // Clear session flag after showing message
+}
 ?>
+
 <!doctype html>
 <html lang="en">
 
@@ -15,7 +21,6 @@ session_start();
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Forum&display=swap"
         rel="stylesheet">
 
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -25,33 +30,35 @@ session_start();
 
     <title>Hotel Reservation System</title>
 
-    <!-- 
-    - custom css link
-  -->
+    <!--- custom css link-->
     <link rel="stylesheet" href="assets/css/styles.css">
-
 
 </head>
 
 <body>
     <!-- Nav  bar -->
     <?php include "views/layouts/header.php"; ?>
-    <!--  <div class="slider-bg">
-            <img src="./assets/images/hero-slider-1.jpg" alt="">
-        </div> -->
+
+    <!-- Display Success Message if Reservation was Successful -->
+    <?php if (isset($success_message)): ?>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <?= $success_message ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <?php endif; ?>
 
     <!-- Hero Section -->
     <section class="hero slider-bg text-white text-center herosection">
         <div class="container hero-text">
-            <h1 class="display-4 ">Welcome to My Website</h1>
-            <p class="lead">We offer amazing products and services</p>
-            <p class="hero-subtitle">Come with family & feel the joy of mouthwatering food</p>
-            <a href="#" class="btn btn-light btn-lg">Learn More</a>
+            <h1 class="display-4 ">Welcome to Majestic Peaks Hotel</h1>
+            <p class="lead">Book your perfect stay at our luxurious rooms.</p>
+            <p class="hero-subtitle">Comfort, luxury, and unforgettable experiences await.</p>
+            <a href="#find-room" class="btn btn-light btn-lg">Book Now</a>
         </div>
     </section>
 
-    <!-- find a room -->
-    <section class="container my-5">
+    <!-- Find a Room -->
+    <section id="find-room" class="container my-5">
         <div class="card p-4 shadow">
             <h3 class="text-center">Find a Room</h3>
             <form action="views/rooms.php" method="GET" class="row g-3">
@@ -84,7 +91,6 @@ session_start();
                     <div class="card-body text-center">
                         <h5 class="card-title">Deluxe Room</h5>
                         <p class="card-text">$150/night</p>
-                        <a href="views/rooms.php" class="btn btn-primary">Book Now</a>
                     </div>
                 </div>
             </div>
@@ -94,7 +100,6 @@ session_start();
                     <div class="card-body text-center">
                         <h5 class="card-title">Standard Room</h5>
                         <p class="card-text">$80/night</p>
-                        <a href="views/rooms.php" class="btn btn-primary">Book Now</a>
                     </div>
                 </div>
             </div>
@@ -104,13 +109,11 @@ session_start();
                     <div class="card-body text-center">
                         <h5 class="card-title">Executive Suite</h5>
                         <p class="card-text">$250/night</p>
-                        <a href="views/rooms.php" class="btn btn-primary">Book Now</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
 
     <?php include "views/layouts/footer.php"; ?> <!-- Footer -->
 
