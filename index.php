@@ -25,9 +25,6 @@ if (isset($_SESSION['booking_success']) && $_SESSION['booking_success'] === true
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <!-- Ionicons for icons -->
-    <link href="https://cdn.jsdelivr.net/npm/ionicons@5.5.0/dist/ionicons.css" rel="stylesheet">
-
     <title>Hotel Reservation System</title>
 
     <!--- custom css link-->

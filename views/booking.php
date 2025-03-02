@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($reservationModel->createReservation($room_id, $guest_name, $email, $phone, $checkin, $checkout, $guests)) {
         session_start();
         $_SESSION['booking_success'] = true; // Set session flag for confirmation message
-        header("Location: ../index.php"); // Redirect to homepage (or change to confirmation page)
+        header("Location: ../index.php"); 
         exit;
     } else {
         $error_message = "Failed to create reservation.";

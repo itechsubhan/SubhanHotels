@@ -27,12 +27,12 @@ CREATE TABLE IF NOT EXISTS reservations (
     FOREIGN KEY (room_id) REFERENCES rooms(room_id) ON DELETE CASCADE
 );
 
--- Create users table (for admin purposes)
-CREATE TABLE IF NOT EXISTS users (
-    user_id INT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(255) NOT NULL,
-    password VARCHAR(255) NOT NULL, -- Store hashed passwords
-    role ENUM('admin', 'user') DEFAULT 'user',
+-- Create the 'users' table
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -50,7 +50,28 @@ INSERT INTO reservations (room_id, guest_name, checkin_date, checkout_date, num_
 (3, 'Mark Johnson', '2025-03-10', '2025-03-15', 4, 1000.00, 'mark.johnson@example.com', '555-555-5555');
 
 -- Insert sample users data (admin for login functionality)
-INSERT INTO users (username, password, role) VALUES
-('admin', MD5('adminpassword'), 'admin'), -- MD5 for hashing (You can use better hashing algorithms like bcrypt)
-('user1', MD5('userpassword1'), 'user'),
-('user2', MD5('userpassword2'), 'user');
+
+
+```Sample Users with Emails and Hashed Passwords:
+John Doe
+
+Email: johndoe@example.com
+Password (plain text): password123
+Hashed Password: $2y$10$Nh8TUIQ6h58fijbHi0I0keFxd0m7T6pq9uwXiDZ7TezAB3cmJkn2m
+Jane Smith
+
+Email: janesmith@example.com
+Password (plain text): mypassword
+Hashed Password: $2y$10$XyfH07lzmsAomZ7p8ICoVq1jnpIdzdhMynbbjmWIW58qzjNRL9bIK
+Alice Brown
+
+Email: alicebrown@example.com
+Password (plain text): 12345678
+Hashed Password: $2y$10$uN1H0HhF3txOgsbDrxyt2.C3k7xdB5IG1y5OkpYhXZhIaTwZryj4a
+Bob White
+
+Email: bobwhite@example.com
+Password (plain text): admin123
+Hashed Password: $2y$10$C6bmlMjgkHjzkRIQ.zFBsOSXvSO45OH4gEjTy.KlGsW1t8FzT7nFeu
+
+```

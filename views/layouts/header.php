@@ -19,7 +19,7 @@
             </ul>
             <ul class="navbar-nav mr-3 mt-2 mt-lg-0 ">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Login</a>
+                    <a class="nav-link" href="views/login.php">Login</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Register</a>

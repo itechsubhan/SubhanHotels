@@ -4,6 +4,7 @@ require_once '../models/Room.php';
 
 class RoomsController
 {
+
     public function index()
     {
         $checkin = $_GET['checkin'] ?? null;
