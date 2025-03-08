@@ -8,38 +8,26 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="#">Home </a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="#">Menus</a>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="#about"> About Us </a>
+                    <a class="nav-link" href="#footer"> About Us </a>
                 </li>
             </ul>
             <ul class="navbar-nav mr-3 mt-2 mt-lg-0 ">
                 <li class="nav-item">
-                    <a class="nav-link" href="views/login.php">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Register</a>
+                    <a class="nav-link" href="views/login.php">Admin Login</a>
                 </li>
             </ul>
         </div>
 
 
-        <a href="tel:+11234567890" class="topbar-item link">
-            <div class="icon">
-                <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
-            </div>
-            <span class="span">+1 123 456 7890</span>
-        </a>
-
-
-        <a href="mailto:booking@restaurant.com" class="topbar-item link">
-            <div class="icon">
-                <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
-            </div>
-            <span class="span">booking@restaurant.com</span>
-        </a>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <span class="nav-link">Phone: +1 123 456 7890</span>
+            </li>
+            <li class="nav-item">
+                <span class="nav-link">email: booking@restaurant.com</span>
+            </li>
+        </ul>
     </nav>

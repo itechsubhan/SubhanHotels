@@ -20,6 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($reservationModel->createReservation($room_id, $guest_name, $email, $phone, $checkin, $checkout, $guests)) {
         session_start();
         $_SESSION['booking_success'] = true; // Set session flag for confirmation message
+        $_SESSION['reservation_id'] = $reservationModel->getLastReservationId();
         header("Location: ../index.php"); 
         exit;
     } else {

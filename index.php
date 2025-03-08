@@ -3,7 +3,7 @@
 session_start();
 // Check if booking was successful
 if (isset($_SESSION['booking_success']) && $_SESSION['booking_success'] === true) {
-    $success_message = "Your reservation was successfully made!";
+    $success_message = "Your reservation was successfully made! Your reservation Id is: " . $_SESSION['reservation_id'];
     unset($_SESSION['booking_success']); // Clear session flag after showing message
 }
 ?>
@@ -40,7 +40,6 @@ if (isset($_SESSION['booking_success']) && $_SESSION['booking_success'] === true
     <?php if (isset($success_message)): ?>
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             <?= $success_message ?>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     <?php endif; ?>
 
@@ -51,6 +50,7 @@ if (isset($_SESSION['booking_success']) && $_SESSION['booking_success'] === true
             <p class="lead">Book your perfect stay at our luxurious rooms.</p>
             <p class="hero-subtitle">Comfort, luxury, and unforgettable experiences await.</p>
             <a href="#find-room" class="btn btn-light btn-lg">Book Now</a>
+            <a href="views/search_reservation.php" class="btn btn-primary btn-lg">Manage reservation</a>
         </div>
     </section>
 
@@ -79,6 +79,24 @@ if (isset($_SESSION['booking_success']) && $_SESSION['booking_success'] === true
     </section>
 
     <!-- Room Categories -->
+    <script>
+        // JavaScript to set minimum check-in and check-out dates
+        document.addEventListener("DOMContentLoaded", function() {
+            var today = new Date().toISOString().split('T')[0];
+            var checkinInput = document.getElementById('checkin');
+            var checkoutInput = document.getElementById('checkout');
+
+            checkinInput.setAttribute('min', today);
+            checkoutInput.setAttribute('min', today);
+
+            checkinInput.addEventListener('change', function() {
+                if (checkoutInput.value < checkinInput.value) {
+                    checkoutInput.value = checkinInput.value;
+                }
+                checkoutInput.setAttribute('min', checkinInput.value);
+            });
+        });
+    </script>
     <section class="container my-5">
         <h2 class="text-center">Our Rooms</h2>
         <div class="row g-3">
